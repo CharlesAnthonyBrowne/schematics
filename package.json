@@ -19,5 +19,11 @@
   "dependencies": {
     "bluebird": "^2.3.11",
     "lodash": "^2.4.1"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "nodeunit": "^0.9.0"
   }
 }
