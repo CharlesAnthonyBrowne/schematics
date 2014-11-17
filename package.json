@@ -1,0 +1,23 @@
+{
+  "name": "schematics",
+  "version": "0.0.1",
+  "description": "JavaScript data structure validator",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thisismN/schematics.git"
+  },
+  "author": {
+    "name": "Gary Burgess",
+    "email": "gary.burgess@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thisismN/schematics/issues"
+  },
+  "homepage": "https://github.com/thisismN/schematics",
+  "dependencies": {
+    "bluebird": "^2.3.11",
+    "lodash": "^2.4.1"
+  }
+}
