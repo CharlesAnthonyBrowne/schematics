@@ -1,1 +1,1 @@
-require("./lib/schematics");
+module.exports = require("./lib/schematics");
