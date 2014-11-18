@@ -17,8 +17,7 @@
   },
   "homepage": "https://github.com/thisismN/schematics",
   "dependencies": {
-    "bluebird": "^2.3.11",
-    "lodash": "^2.4.1"
+    "bluebird": "^2.3.11"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
