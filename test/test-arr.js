@@ -35,6 +35,11 @@ module.exports = {
     "empty": valid(s.arr().each(s.bool()), []),
     "all valid": valid(s.arr().each(s.bool()), [true, false, true]),
     "any invalid": invalid(s.arr().each(s.bool()), [true, "test"]),
-    "don't retain state": stateRetention(s.arr().each(s.bool()), ["test"], [true])
+    "don't retain state": {
+      "with an empty array":
+        stateRetention(s.arr().each(s.str()), [true], []),
+      "or otherwise":
+        stateRetention(s.arr().each(s.str()), [true], ["test"]),
+    }
   }
 };

@@ -45,20 +45,22 @@ exports.customFailure = function (schema, badValue) {
 };
 
 exports.stateRetention = function (schema, badValue, goodValue) {
+  var lastResult = null;
   return function (test) {
     schema.run(badValue)
       .then(function (result) {
+        lastResult = result;
         test.equal(result.valid, false);
-        schema.run(goodValue)
-          .then(function (result) {
-            test.ok(result.valid);
-            checkTreeConsistency(test, result, true);
-            schema.run(badValue)
-              .then(function (result) {
-                test.equal(result.valid, false);
-                test.done();
-              });
-          });
+        return schema.run(goodValue);
+      })
+      .then(function (result) {
+        test.ok(result.valid);
+        checkTreeConsistency(test, result, true);
+        return schema.run(badValue);
+      })
+      .then(function (result) {
+        test.equal(result.valid, false);
+        test.done();
       });
   };
 };
