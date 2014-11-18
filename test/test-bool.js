@@ -8,8 +8,11 @@ var customFailure = common.customFailure;
 var stateRetention = common.stateRetention;
 
 module.exports = {
+  /*jshint -W053 */
 
   "accept boolean values": valid(s.bool(), true),
+
+  "accept Boolean instance values": valid(s.bool(), new Boolean()),
 
   "reject non-boolean values": {
     "array"    : invalid(s.bool(), []),
