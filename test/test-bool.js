@@ -1,7 +1,7 @@
 "use strict";
 
 var s = require("../index");
-var common = require("./fixtures/common");
+var common = require("./common");
 var valid = common.valid;
 var invalid = common.invalid;
 var customFailure = common.customFailure;
@@ -12,6 +12,7 @@ module.exports = {
   "accept boolean values": valid(s.bool(), true),
 
   "reject non-boolean values": {
+    "array"    : invalid(s.bool(), []),
     "date"     : invalid(s.bool(), new Date()),
     "null"     : invalid(s.bool(), null),
     "number"   : invalid(s.bool(), 1),

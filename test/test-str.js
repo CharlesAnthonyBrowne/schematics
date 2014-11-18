@@ -1,7 +1,7 @@
 "use strict";
 
 var s = require("../index");
-var common = require("./fixtures/common");
+var common = require("./common");
 var valid = common.valid;
 var invalid = common.invalid;
 var customFailure = common.customFailure;
@@ -12,6 +12,7 @@ module.exports = {
   "accept strings": valid(s.str(), ""),
 
   "reject non-string values": {
+    "array"    : invalid(s.bool(), []),
     "boolean"  : invalid(s.str(), true),
     "date"     : invalid(s.str(), new Date()),
     "null"     : invalid(s.str(), null),

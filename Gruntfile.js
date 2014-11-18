@@ -8,7 +8,7 @@ module.exports = function(grunt) {
       options: {
         reporter: "default"
       },
-      files: ["test/*.js"],
+      files: ["test/test-*.js"],
     },
 
     jshint: {

@@ -24,10 +24,11 @@ exports.invalid = function (schema, value) {
 
 exports.customFailure = function (schema, badValue) {
   return function (test) {
-    test.expect(1);
+    test.expect(2);
     schema("test message").run(badValue)
       .then(function (result) {
-        test.deepEqual(result, { valid: false, msg: "test message" });
+        test.equal(result.valid, false);
+        test.equal(result.msg, "test message");
         test.done();
       });
   };
