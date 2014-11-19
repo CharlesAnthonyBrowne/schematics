@@ -5,7 +5,7 @@ var _ = require("lodash");
 var checkTreeConsistency = function (test, node) {
   /*jshint maxcomplexity: 4*/
   if (!node.valid) {
-    throw new Error("`valid: false` did not propagate correctly");
+    test.ok(false, "`valid: false` did not propagate correctly");
   }
   _.each(node.why || node.whys || [], function (value) {
     checkTreeConsistency(test, value);
