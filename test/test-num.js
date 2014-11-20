@@ -38,5 +38,15 @@ module.exports = {
     "use custom failure message": customFailure(function (msg) {
       return s.num().max(10, msg);
     }, 11)
+  },
+
+  "isReal rule": {
+    "number": valid(s.num().isReal(), 10),
+    "NaN": invalid(s.num().isReal(), NaN),
+    "Infinity": invalid(s.num().isReal(), Infinity),
+    "-Infinity": invalid(s.num().isReal(), -Infinity),
+    "use custom failure message": customFailure(function (msg) {
+      return s.num().isReal(msg);
+    }, NaN)
   }
 };
