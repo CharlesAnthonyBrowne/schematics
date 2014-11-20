@@ -29,5 +29,13 @@ module.exports = {
     "empty": invalid(s.str().nonEmpty(), ""),
     "use custom failure message": customFailure(s.str().nonEmpty, ""),
     "don't retain state": stateRetention(s.str().nonEmpty(), "", "test"),
+  },
+
+  "pattern rule": {
+    "valid": valid(s.str().pattern(/^[0-9]{3}$/), "123"),
+    "invalid": invalid(s.str().pattern(/^[0-9]{3}$/), "abc"),
+    "use custom failure message": customFailure(function (msg) {
+      return s.str().pattern(/^[0-9]{3}$/, msg);
+    }, "abc")
   }
 };
