@@ -22,5 +22,21 @@ module.exports = {
   },
 
   "use custom failure message": customFailure(s.num, null),
-  "don't retain state": stateRetention(s.num(), null, 1)
+  "don't retain state": stateRetention(s.num(), null, 1),
+
+  "minimum rule": {
+    "valid": valid(s.num().min(0), 0),
+    "invalid": invalid(s.num().min(0), -1),
+    "use custom failure message": customFailure(function (msg) {
+      return s.num().min(0, msg);
+    }, -1)
+  },
+
+  "maximum rule": {
+    "valid": valid(s.num().max(10), 10),
+    "invalid": invalid(s.num().max(0), 11),
+    "use custom failure message": customFailure(function (msg) {
+      return s.num().max(10, msg);
+    }, 11)
+  }
 };
