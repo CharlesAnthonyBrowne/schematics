@@ -168,4 +168,4 @@ console.log(myNumSchema.isPositive) // [Function]
 
 ## Compatibility
 
-Currently `schematics` has only tested on Node.js, but should also work in any browser that supports ES5. ES3 support and better test coverage coming soon.
+Currently `schematics` has only been tested for Node.js, but should also work in any browser that supports ES5. ES3 support and better test coverage coming soon.
