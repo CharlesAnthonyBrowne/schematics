@@ -4,7 +4,7 @@ Declarative data structure validation for Javascript.
 
 ## Download/install
 
-- Download [schematics.js](raw/master/lib/schematics.js)
+- Download [schematics.js](lib/schematics.js)
 - Install via NPM: `npm install schematics`
 - Install via Bower: `bower install schematics`
 
@@ -128,7 +128,7 @@ A `arr` schema can be extended with the following rules:
 
 ### Extending
 
-Schemas can be extended with new rules by using the `.extend(stepDefs)` function. `stepDefs` is an object containing `step` function definitions, with keys as the names of the new rules:
+Schemas can be extended with new rules by using the `.extend(stepDefs)` function. `stepDefs` is an object containing step function definitions, with keys as the names of the new rules:
 
 ```js
 var s = require("schematics");
@@ -149,7 +149,7 @@ myNumSchema.isReal().isPositive().run(42)
   });
 ```
 
-Each value in `stepDefs` should be a function that returns a `step`-style function - one that accepts the value to validate and returns an object of the form `{ valid: bool, ... }`.
+Each value in `stepDefs` should be a function that returns a step-style function - one that accepts the value to validate and returns an object of the form `{ valid: bool, ... }`.
 
 **Note:** When extending the rules of a schema this does not modify the existing schema, it returns a copy of the current schema with the newly added rule:
 
