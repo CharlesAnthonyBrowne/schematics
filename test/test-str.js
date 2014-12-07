@@ -37,5 +37,13 @@ module.exports = {
     "use custom failure message": customFailure(function (msg) {
       return s.str().pattern(/^[0-9]{3}$/, msg);
     }, "abc")
+  },
+
+  "enum rule": {
+    "valid": valid(s.str().enum(["foo", "bar"]), "foo"),
+    "invalid": invalid(s.str().enum(["foo", "bar"]), "abc"),
+    "use custom failure message": customFailure(function (msg) {
+      return s.str().enum(["foo", "bar"], msg);
+    }, "abc")
   }
 };
