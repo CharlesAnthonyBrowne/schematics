@@ -100,6 +100,11 @@ A `str` schema can be extended with the following rules:
 
 - `.nonEmpty()` specified that the string must not be empty.
 - `.pattern(rx)` specifies a regular expression pattern the string must meet.
+- `.enum([values])` specifies a range of acceptable values for the string.
+
+#### `schematics.nil()`
+
+Creates a schema for `null` or `undefined` types. This is probably only useful when used with `or`.
 
 #### `schematics.date()`
 
@@ -125,6 +130,10 @@ A `arr` schema can be extended with the following rules:
 
 - `.nonEmpty()` specified that the array must not be empty.
 - `.each(schema)` specifies that each object in the array must match the specified schema.
+
+#### `schematics.or(s1, s2)`
+
+Creates a schema that joins two schemas and accepts either of them passing.
 
 ### Extending
 
