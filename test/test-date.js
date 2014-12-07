@@ -12,7 +12,7 @@ module.exports = {
   "accept Date values": valid(s.date(), new Date()),
 
   "reject non-Date values": {
-    "array"    : invalid(s.bool(), []),
+    "array"    : invalid(s.date(), []),
     "boolean"  : invalid(s.date(), true),
     "null"     : invalid(s.date(), null),
     "number"   : invalid(s.date(), 1),

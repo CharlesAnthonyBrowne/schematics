@@ -12,7 +12,7 @@ module.exports = {
   "accept numeric values": valid(s.num(), 1),
 
   "reject non-numeric values": {
-    "array"    : invalid(s.bool(), []),
+    "array"    : invalid(s.num(), []),
     "boolean"  : invalid(s.num(), true),
     "date"     : invalid(s.num(), new Date()),
     "null"     : invalid(s.num(), null),

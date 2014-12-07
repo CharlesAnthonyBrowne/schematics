@@ -12,7 +12,7 @@ module.exports = {
   "accept strings": valid(s.str(), ""),
 
   "reject non-string values": {
-    "array"    : invalid(s.bool(), []),
+    "array"    : invalid(s.str(), []),
     "boolean"  : invalid(s.str(), true),
     "date"     : invalid(s.str(), new Date()),
     "null"     : invalid(s.str(), null),
