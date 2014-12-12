@@ -23,9 +23,10 @@ var s = require("schematics");
 
 // declare a schema for objects with numeric x and y properties
 // don't allow NaN, Infinity, etc. values for the numbers
-var pointSchema = s.obj()
-    .prop("x", s.num().isReal())
-    .prop("y", s.num().isReal());
+var pointSchema = s.obj({
+  x: s.num().isReal(),
+  y: s.num().isReal()
+});
 
 // `run` returns a promise, as the validation steps may also be promisified
 pointSchema.run({ x: 10, y: 20 })
@@ -114,22 +115,17 @@ A `date` schema can be extended with the following rules:
 
 - `.valid()` specifies that a date value must not be `Invalid Date`.
 
-#### `schematics.obj()`
+#### `schematics.obj(props)`
 
-Creates a schema for `Object` types.
+Creates a schema for `Object` types. The `props` argument can either be left empty if only the type check is required, or an object with enumerable keys, where each key have a schema associated with it, and the properties of the object will be checked against these schemas.
 
-A `obj` schema can be extended with the following rules:
+#### `schematics.arr(schema)`
 
-- `.prop(name, schema)` specifies that the object must have the named property, and that the property matches the specified schema.
-
-#### `schematics.arr()`
-
-Creates a schema for `Array` types.
+Creates a schema for `Array` types. The `schema` argument can either be left empty if only the type check is required, or a schema that will be run against each value of the array.
 
 A `arr` schema can be extended with the following rules:
 
 - `.nonEmpty()` specified that the array must not be empty.
-- `.each(schema)` specifies that each object in the array must match the specified schema.
 
 #### `schematics.or(s1, s2)`
 
