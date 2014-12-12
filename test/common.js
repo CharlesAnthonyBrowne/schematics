@@ -33,17 +33,6 @@ exports.invalid = function (schema, value) {
   };
 };
 
-exports.customFailure = function (schema, badValue) {
-  return function (test) {
-    schema("test message").run(badValue)
-      .then(function (result) {
-        test.equal(result.valid, false);
-        test.equal(result.msg, "test message");
-        test.done();
-      });
-  };
-};
-
 exports.stateRetention = function (schema, badValue, goodValue) {
   var lastResult = null;
   return function (test) {
