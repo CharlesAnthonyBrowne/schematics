@@ -29,14 +29,14 @@ module.exports = {
   },
 
   "each rule": {
-    "empty": valid(s.arr().each(s.bool()), []),
-    "all valid": valid(s.arr().each(s.bool()), [true, false, true]),
-    "any invalid": invalid(s.arr().each(s.bool()), [true, "test"]),
+    "empty": valid(s.arr(s.bool()), []),
+    "all valid": valid(s.arr(s.bool()), [true, false, true]),
+    "any invalid": invalid(s.arr(s.bool()), [true, "test"]),
     "don't retain state": {
       "with an empty array":
-        stateRetention(s.arr().each(s.str()), [true], []),
+        stateRetention(s.arr(s.str()), [true], []),
       "or otherwise":
-        stateRetention(s.arr().each(s.str()), [true], ["test"]),
+        stateRetention(s.arr(s.str()), [true], ["test"]),
     }
   }
 };

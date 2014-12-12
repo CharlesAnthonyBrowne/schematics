@@ -23,24 +23,19 @@ module.exports = {
   "prop rule": {
 
     "single property":
-      valid(s.obj()
-        .prop("x", s.num()), { x: 1 }),
+      valid(s.obj({ x: s.num() }), { x: 1 }),
 
     "multiple properties":
-      valid(s.obj()
-        .prop("x", s.num())
-        .prop("y", s.num())
-        .prop("z", s.num()), { x: 1, y: 2, z: 3 }),
+      valid(s.obj({ x: s.num(), y: s.num(), z: s.num() }),
+        { x: 1, y: 2, z: 3 }),
 
     "missing property":
-      invalid(s.obj()
-        .prop("x", s.num()), {}),
+      invalid(s.obj({ x: s.num() }), {}),
 
     "any invalid":
-      invalid(s.obj()
-        .prop("x", s.num()), { x: true }),
+      invalid(s.obj({ x: s.num() }), { x: true }),
 
     "don't retain state":
-      stateRetention(s.obj().prop("x", s.num()), {}, { x: 1 })
+      stateRetention(s.obj({ x: s.num() }), {}, { x: 1 })
   }
 };
