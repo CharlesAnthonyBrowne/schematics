@@ -4,7 +4,6 @@ var s = require("../index");
 var common = require("./common");
 var valid = common.valid;
 var invalid = common.invalid;
-var customFailure = common.customFailure;
 var stateRetention = common.stateRetention;
 
 module.exports = {
@@ -21,13 +20,11 @@ module.exports = {
     "undefined": invalid(s.date(), undefined)
   },
 
-  "use custom failure message": customFailure(s.date, null),
   "don't retain state": stateRetention(s.date(), null, new Date()),
 
   "valid rule": {
     "valid": valid(s.date().valid(), new Date()),
     "invalid": invalid(s.date().valid(), new Date(NaN)),
-    "use custom failure message": customFailure(s.date().valid, new Date(NaN)),
     "don't retain state": stateRetention(s.date().valid(), new Date(NaN), new Date()),
   }
 };

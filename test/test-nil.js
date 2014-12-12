@@ -4,7 +4,6 @@ var s = require("../index");
 var common = require("./common");
 var valid = common.valid;
 var invalid = common.invalid;
-var customFailure = common.customFailure;
 var stateRetention = common.stateRetention;
 
 module.exports = {
@@ -21,7 +20,6 @@ module.exports = {
     "string"   : invalid(s.nil(), "abc"),
   },
 
-  "use custom failure message": customFailure(s.nil, 1),
   "don't retain state": stateRetention(s.nil(), 1, null)
 
 };
