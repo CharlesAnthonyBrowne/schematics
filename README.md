@@ -88,9 +88,9 @@ Creates a schema for `Number` types.
 
 A `num` schema can be extended with the following rules:
 
-- `.min(n)` specifies the minimum allowed value for the number, with optional custom message for failures.
-- `.max(n)` specified the maximum allowed value for the number, with optional custom message for failures.
-- `.isReal()` ensures the number is finite and not `NaN`, with optional custom message for failures.
+- `.min(n)` specifies the minimum allowed value for the number.
+- `.max(n)` specified the maximum allowed value for the number.
+- `.isReal()` ensures the number is finite and not `NaN`.
 
 #### `schematics.str()`
 
@@ -134,6 +134,10 @@ A `arr` schema can be extended with the following rules:
 #### `schematics.or(s1, s2)`
 
 Creates a schema that joins two schemas and accepts either of them passing.
+
+#### `schematics.msg(msg, s)`
+
+Creates a schema that allows custom error messages to be specified. When `s` fails, the resulting object will use the custom `msg`.
 
 ### Extending
 
